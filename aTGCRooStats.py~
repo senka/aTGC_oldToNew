@@ -354,22 +354,41 @@ def fitATGCExpectedYields(ws,cfg,section):
         binMin = bins[i-1]
         binMax = bins[i]
 
+        
+#        newFormatInput = TH2D('bin_content_lam_dk_'+str(i)+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV','bincontent',
+ #                          nGridPointsForNewF,cfg.getfloat(section,'par1GridMin'),cfg.getfloat(section,'par1GridMax'),
+ #                          nGridPointsForNewF,cfg.getfloat(section,'par2GridMin'),cfg.getfloat(section,'par2GridMax'))
+ #       newFormatInput_lamdg = TH2D('bin_content_lam_dg_'+str(i)+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV','bincontent',
+ #                          nGridPointsForNewF,cfg.getfloat(section,'par1GridMin'),cfg.getfloat(section,'par1GridMax'),
+ #                          nGridPointsForNewF,cfg.getfloat(section,'par2GridMin'),cfg.getfloat(section,'par2GridMax'))
+ #       newFormatInput_dkdg = TH2D('bin_content_dk_dg_'+str(i)+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV','bincontent',
+ #                          nGridPointsForNewF,cfg.getfloat(section,'par1GridMin'),cfg.getfloat(section,'par1GridMax'),
+ #                          nGridPointsForNewF,cfg.getfloat(section,'par2GridMin'),cfg.getfloat(section,'par2GridMax'))
+ #       
+ #       newFormatCoef = TH1F('parameters_'+str(i)+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV','bincoeff',
+ #                            6,-0.5,5.5)
+
 
         newFormatInput = TH2D('bin_content_lam_dk_'+str(i)
+   #                           +'_'+str(int(binMin))
+   #                           +'to'+str(int(binMax))+'GeV'
                               ,'bincontent',
                           nGridPointsForNewF,cfg.getfloat(section,'par1GridMin'),cfg.getfloat(section,'par1GridMax'),
                           nGridPointsForNewF,cfg.getfloat(section,'par2GridMin'),cfg.getfloat(section,'par2GridMax')
                               )
         newFormatInput_lamdg = TH2D('bin_content_lam_dg_'+str(i)
+                                    #+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV'
                                     ,'bincontent',
                            nGridPointsForNewF,cfg.getfloat(section,'par1GridMin'),cfg.getfloat(section,'par1GridMax'),
                            nGridPointsForNewF,cfg.getfloat(section,'par2GridMin'),cfg.getfloat(section,'par2GridMax'))
         newFormatInput_dkdg = TH2D('bin_content_dk_dg_'+str(i)
+                                   #+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV'
                                    ,'bincontent',
                            nGridPointsForNewF,cfg.getfloat(section,'par1GridMin'),cfg.getfloat(section,'par1GridMax'),
                            nGridPointsForNewF,cfg.getfloat(section,'par2GridMin'),cfg.getfloat(section,'par2GridMax'))
         
         newFormatCoef = TH1F('parameters_'+str(i)
+                             #+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV'
                              ,'bincoeff',
                              6,-0.5,5.5)
 
@@ -442,9 +461,11 @@ def fitATGCExpectedYields(ws,cfg,section):
 
         newFormatInput_lamdg=newFormatInput.Clone("name1")
         newFormatInput_lamdg.SetName('bin_content_lam_dg_'+str(i)
+                                     #+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV'
                                      )
         newFormatInput_dkdg=newFormatInput.Clone("name2")
         newFormatInput_dkdg.SetName('bin_content_dk_dg_'+str(i)
+                                    #+'_'+str(int(binMin))+'to'+str(int(binMax))+'GeV'
                                     )
         print "read SM yield: ", newFormatInput.GetBinContent(newFormatInput.FindBin(0.,0.))
         newFormatInput.Scale(1./SM_yield)
