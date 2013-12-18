@@ -1,0 +1,59 @@
+[DEFAULT]
+obsVar = PtZ
+obsVarPlotName = p_{T}^{Z} (GeV)
+obsBins = 0.,66.,132.,198.,264.,330.,396.
+signal_weight_var=weight
+nGridParBins = 11
+par1GridMax =  0.15
+par1GridMin = -0.15
+par2GridMax =  0.05
+par2GridMin = -0.05
+
+[Global]
+workspace = WZ_8TeV_dk0_11by11_allch_data_systOK_systSignal10p_6bins_0to400_newF_final
+lumi_err = 0.044
+couplingType = WZ
+par1Name = dg
+par1PlotName = #Delta g^{Z}
+par2Name = lam
+par2PlotName = #lambda
+par1Max = 0.15
+par2Max = 0.05
+
+[ch_3mu_2011AB]
+obsVar = PtZ
+obsBins = 0.,66.,132.,198.,264.,330.,396.
+signal_model = WZ_2012_8TeV_merged_00dk_3mu_11by11.root:wz
+selection_err = 0.1
+input_data = data_aTGC_8TeV_3mu.root:wz
+bkg_tmp = sumedBkg_3mu_6bins_0to396.root:total_bkg_rebined
+bkg_err_tmp = 0.155
+
+[ch_2mu_2011AB]
+obsVar = PtZ
+obsBins = 0.,66.,132.,198.,264.,330.,396.
+signal_model = WZ_2012_8TeV_merged_00dk_2mu_11by11.root:wz
+selection_err = 0.1
+input_data = data_aTGC_8TeV_2mu.root:wz
+bkg_tmp = sumedBkg_2mu_6bins_0to396.root:total_bkg_rebined
+bkg_err_tmp = 0.14
+
+
+[ch_3e_2011AB]
+obsVar = PtZ
+obsBins = 0.,66.,132.,198.,264.,330.,396.
+signal_model = WZ_2012_8TeV_merged_00dk_3e_11by11.root:wz
+selection_err = 0.1
+input_data = data_aTGC_8TeV_3e.root:wz
+bkg_tmp = sumedBkg_3e_6bins_0to396.root:total_bkg_rebined
+bkg_err_tmp = 0.22
+
+[ch_2e_2011AB]
+obsVar = PtZ
+obsBins = 0.,66.,132.,198.,264.,330.,396.
+signal_model = WZ_2012_8TeV_merged_00dk_2e_11by11.root:wz
+selection_err = 0.1
+input_data = data_aTGC_8TeV_2e.root:wz
+bkg_tmp = sumedBkg_2e_6bins_0to396.root:total_bkg_rebined
+bkg_err_tmp = 0.123
+
